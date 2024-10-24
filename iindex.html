@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книжковий Список</title>
+    <link rel="stylesheet" href="style_l3.css">
+</head>
+<body>
+
+    <h2>Книжковий Список</h2>
+    <div class="tabs">
+        <button class="tab-link active" onclick="openTab(event, 'book-list')">Список Книг</button>
+        <button class="tab-link" onclick="openTab(event, 'create')">Додати Книгу</button>
+        <button class="tab-link" onclick="openTab(event, 'edit')">Редагувати Книгу</button>
+    </div>
+
+    <div id="book-list" class="tab-content active-tab">
+        <input type="text" id="search" placeholder="Пошук..." oninput="searchBook()">
+        <button onclick="sortBooks()">Сортувати за ціною</button> 
+        <div id="book-list-content"></div>
+        <div id="total-price" class="total-expense">
+            <b>Загальна вартість книг: </b><span id="total-price-value">0</span> грн 
+        </div>
+    </div>
+
+    <div id="create" class="tab-content">
+        <div class="form-section">
+            <label for="title-create">Назва:</label>
+            <input type="text" id="title-create">
+            <label for="author-create">Автор:</label>
+            <input type="text" id="author-create">
+            <label for="pages-create">Кількість сторінок:</label>
+            <input type="number" id="pages-create">
+            <label for="price-create">Ціна:</label>
+            <input type="number" id="price-create" step="0.01">
+            <button onclick="addBook()">Додати Книгу</button>
+            <div id="create-error" class="error-message" style="display: none;">Будь ласка, заповніть всі поля!</div>
+        </div>
+    </div>
+
+    <div id="edit" class="tab-content">
+        <div class="form-section">
+            <label for="title-edit">Назва:</label>
+            <input type="text" id="title-edit">
+            <label for="author-edit">Автор:</label>
+            <input type="text" id="author-edit">
+            <label for="pages-edit">Кількість сторінок:</label>
+            <input type="number" id="pages-edit">
+            <label for="price-edit">Ціна:</label>
+            <input type="number" id="price-edit" step="0.01">
+            <button onclick="saveChanges()">Зберегти Зміни</button>
+            <div id="edit-error" class="error-message" style="display: none;">Будь ласка, заповніть всі поля!</div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
